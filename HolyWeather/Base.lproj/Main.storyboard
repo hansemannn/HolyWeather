@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="HolyWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Rqt-0E-Bra">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <color key="color" red="0.17348068550000001" green="0.44398346560000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="140" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8y-3R-3sP">
+                                <rect key="frame" x="74" y="76" width="452" height="167"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="190"/>
+                                <color key="textColor" red="0.1647058824" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;CityName&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unb-Fv-eJm">
+                                <rect key="frame" x="146" y="40" width="308" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="3Lv-nv-WJL"/>
+                                    <constraint firstAttribute="width" constant="308" id="TOJ-No-6WU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" red="0.16470588235294117" green="0.20392156862745098" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Rqt-0E-Bra" secondAttribute="centerX" constant="-0.5" id="2bm-2V-FlK"/>
+                            <constraint firstItem="l8y-3R-3sP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="58" id="OhR-kl-iWr"/>
+                            <constraint firstAttribute="centerY" secondItem="Rqt-0E-Bra" secondAttribute="centerY" constant="0.5" id="W4i-EK-Zsk"/>
+                            <constraint firstItem="l8y-3R-3sP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="56" id="YxK-4H-tXV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="l8y-3R-3sP" secondAttribute="bottom" constant="357" id="cis-2z-AW1"/>
+                            <constraint firstItem="unb-Fv-eJm" firstAttribute="centerX" secondItem="Rqt-0E-Bra" secondAttribute="centerX" id="dbL-E2-dPj"/>
+                            <constraint firstItem="unb-Fv-eJm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="fV2-We-4Ym"/>
+                            <constraint firstItem="l8y-3R-3sP" firstAttribute="centerX" secondItem="Rqt-0E-Bra" secondAttribute="centerX" id="l4B-1C-PNo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Rqt-0E-Bra" id="nrm-nW-lxC"/>
+                        <outlet property="locationName" destination="unb-Fv-eJm" id="Wjh-cY-h5l"/>
+                        <outlet property="locationTemperature" destination="l8y-3R-3sP" id="Opk-YL-j00"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="217" y="530"/>
+        </scene>
+    </scenes>
+</document>
