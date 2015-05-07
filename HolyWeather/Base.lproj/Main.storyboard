@@ -18,7 +18,7 @@
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Rqt-0E-Bra">
                                 <rect key="frame" x="282" y="281" width="37" height="37"/>
-                                <color key="color" red="0.17348068550000001" green="0.44398346560000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="color" red="0.99215686274509807" green="0.59607843137254901" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;CityName&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unb-Fv-eJm" userLabel="Location Name">
                                 <rect key="frame" x="146" y="40" width="308" height="45"/>
