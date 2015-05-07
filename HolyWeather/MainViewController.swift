@@ -29,8 +29,16 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
+    /**
+    Represents the delegate of the LocationManager and is fired, locations were updated.
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    :param: manager     The correspondig LocationManager to take the location data.
+    :param: locations   The received locations.
+    
+    :returns: No return value.
+    */
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) -> Void {
         var locationValue : CLLocationCoordinate2D = manager.location.coordinate
         
         self.locationManager.locationManager.stopUpdatingLocation()
@@ -43,12 +51,24 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
         println("Found location!\n- Latitude = \(self.userLocation.getLatitude())\n- Longitude = \(self.userLocation.getLongitude())")
     }
     
-    func loadData() {
+    /**
+    Loads the weather data from the json-based web service.
+    
+    :returns: No return value.
+    */
+    func loadData() -> Void {
         let req = RequestManager()
         let url = "http://api.openweathermap.org/data/2.5/weather?lat=\(self.userLocation.getLatitude())&lon=\(self.userLocation.getLongitude())&units=metric"
-        req.load(url, completion: updateUI)
+        req.load("GET", url: url, completion: updateUI)
     }
+
+    /**
+    Loads the weather data from the json-based web service.
+
+    :param: response    The json response of the weather
     
+    :returns: No return value.
+    */
     func updateUI(response : AnyObject) -> Void {
         let json = JSON(response)
         
