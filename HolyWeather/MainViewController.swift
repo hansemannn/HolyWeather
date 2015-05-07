@@ -46,7 +46,7 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
     func loadData() {
         let req = RequestManager()
         let url = "http://api.openweathermap.org/data/2.5/weather?lat=\(self.userLocation.getLatitude())&lon=\(self.userLocation.getLongitude())&units=metric"
-        req.load(url, callback: updateUI)
+        req.load(url, completion: updateUI)
     }
     
     func updateUI(response : AnyObject) -> Void {

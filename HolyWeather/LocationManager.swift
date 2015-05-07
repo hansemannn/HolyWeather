@@ -40,10 +40,7 @@ class WeatherLocationManager : NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        if(self.didUpdateLocation == false) {
-            self.didUpdateLocation = true
-            self.delegate?.locationManager(manager, didUpdateLocations: locations)
-        }
+        self.delegate?.locationManager(manager, didUpdateLocations: locations)
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {

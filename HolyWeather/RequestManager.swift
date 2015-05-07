@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class RequestManager {
-    func load(url: String, callback: (AnyObject) -> Void) {
+    func load(url: String, completion: (AnyObject) -> Void) {
         let URL = NSURL(string: url)!
         let mutableURLRequest = NSMutableURLRequest(URL: URL)
         mutableURLRequest.HTTPMethod = "GET"
@@ -19,14 +19,14 @@ class RequestManager {
         var JSONSerializationError: NSError? = nil
         
         let req = Alamofire.request(mutableURLRequest).responseJSON { (req, res, json, error) in
-            
+                        
             if(json == nil) {
                 println("Der Server ist aktuell nicht erreichbar. Bitte versuche es erneut!")
-                callback("Error");
+                completion("Error");
                 return
             }
             
-            callback(json!)
+            completion(json!)
         }
     }
 }
