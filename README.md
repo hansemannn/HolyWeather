@@ -2,7 +2,7 @@
 
 The swift based iOS implementation of a weather app based on the <a href="http://openweathermap.org">OpenWeatherMap API</a>. At this time, the app supports the displaying of the weather based on the user's location.
 
-<img src="http://abload.de/img/holyweather-iosfsqp5.png" width="400" height="649" alt="HolyWeather Android" />
+<img src="http://abload.de/img/holyweather-iosfjs8z.png" width="400" height="649" alt="HolyWeather Android" />
 
 <h2>Requirements</h2>
 * The iOS SDK 7.0 or greater (default is set to 8.3)<br/>
