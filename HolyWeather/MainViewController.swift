@@ -23,7 +23,7 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
     
     
     @IBAction func refreshButtonClicked(sender: UIBarButtonItem) {
-        self.locationManager.updateLocation(showError)
+        self.updateLocation()
     }
     
     override func viewDidLoad() {
@@ -35,12 +35,20 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
+        self.updateLocation()
+    }
+    
+    /**
+    Triggers new location updates to the WeatherLocationManager
+    
+    :returns: No return value.
+    */
+    func updateLocation() -> Void {
+        self.locationName.hidden = true
+        self.locationTemperature.hidden = true
+
         self.activityIndicator.startAnimating()
         self.locationManager.updateLocation(showError)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
     /**
@@ -99,8 +107,6 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
     :returns: No return value.
     */
     func showError(error : String) -> Void {
-        println(error)
-
         self.activityIndicator.stopAnimating()
         Utilities().showAlert("Error", message: error, view: self)
     }
