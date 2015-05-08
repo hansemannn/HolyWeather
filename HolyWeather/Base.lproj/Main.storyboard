@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OiV-yP-MzP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Holy Weather!-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="HolyWeather" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Rqt-0E-Bra">
-                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <rect key="frame" x="282" y="337" width="37" height="37"/>
                                 <color key="color" red="0.99215686274509807" green="0.59607843137254901" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;CityName&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unb-Fv-eJm" userLabel="Location Name">
-                                <rect key="frame" x="146" y="40" width="308" height="45"/>
+                                <rect key="frame" x="146" y="96" width="308" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="3Lv-nv-WJL"/>
                                     <constraint firstAttribute="width" constant="308" id="TOJ-No-6WU"/>
@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="180" translatesAutoresizingMaskIntoConstraints="NO" id="l8y-3R-3sP" userLabel="Temperature">
-                                <rect key="frame" x="0.0" y="78" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="134" width="600" height="200"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="202"/>
                                 <color key="textColor" red="0.1647058824" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -43,12 +43,20 @@
                             <constraint firstItem="Rqt-0E-Bra" firstAttribute="top" secondItem="l8y-3R-3sP" secondAttribute="bottom" constant="3" id="FWa-cA-9t1"/>
                             <constraint firstItem="l8y-3R-3sP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="H0l-7O-xvI"/>
                             <constraint firstItem="l8y-3R-3sP" firstAttribute="centerX" secondItem="unb-Fv-eJm" secondAttribute="centerX" id="QGM-D0-d7k"/>
-                            <constraint firstItem="l8y-3R-3sP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="58" id="UzU-KK-9hs"/>
-                            <constraint firstAttribute="centerY" secondItem="Rqt-0E-Bra" secondAttribute="centerY" constant="0.5" id="W4i-EK-Zsk"/>
+                            <constraint firstItem="l8y-3R-3sP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="UzU-KK-9hs"/>
+                            <constraint firstAttribute="centerY" secondItem="Rqt-0E-Bra" secondAttribute="centerY" constant="-55.5" id="W4i-EK-Zsk"/>
                             <constraint firstItem="unb-Fv-eJm" firstAttribute="centerX" secondItem="Rqt-0E-Bra" secondAttribute="centerX" id="dbL-E2-dPj"/>
-                            <constraint firstItem="unb-Fv-eJm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="fV2-We-4Ym"/>
+                            <constraint firstItem="unb-Fv-eJm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="fV2-We-4Ym"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Holy Weather!" id="V4W-kC-0FM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="UIs-Cf-oSw">
+                            <color key="tintColor" red="1" green="0.65861275417234655" blue="0.3211284267316844" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="refreshButtonClicked:" destination="BYZ-38-t0r" id="NoT-x4-3DT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="Rqt-0E-Bra" id="nrm-nW-lxC"/>
                         <outlet property="locationName" destination="unb-Fv-eJm" id="Wjh-cY-h5l"/>
@@ -57,7 +65,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="217" y="530"/>
+            <point key="canvasLocation" x="518" y="714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Gus-vS-GAi">
+            <objects>
+                <navigationController id="OiV-yP-MzP" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gjH-Ho-nft">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JOB-zY-CDs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ucl-RZ-8tq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-224" y="714"/>
         </scene>
     </scenes>
 </document>

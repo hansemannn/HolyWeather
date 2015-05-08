@@ -20,6 +20,11 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
     @IBOutlet weak var locationName: UILabel!
     @IBOutlet weak var locationTemperature: UILabel!
     
+    
+    @IBAction func refreshButtonClicked(sender: UIBarButtonItem) {
+        self.locationManager.updateLocation(showError)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
