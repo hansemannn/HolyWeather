@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import SwiftyJSON
+import Alamofire
 
 class MainViewController: UIViewController, WeatherLocationDelegate {
     
@@ -56,6 +57,22 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
     }
     
     /**
+    Represents the delegate of the LocationManager and is fired, when the authorization status is changed.
+    
+    :param: manager     The correspondig LocationManager to take the location data.
+    :param: status      The new status.
+    
+    :returns: No return value.
+    */
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if(status == CLAuthorizationStatus.Denied) {
+            self.showError("You denied the access to the location services. Please enable the location services and try again!")
+        } else {
+            self.locationManager.updateLocation(showError)
+        }
+    }
+    
+    /**
     Loads the weather data from the json-based web service.
     
     :returns: No return value.
@@ -63,7 +80,7 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
     func loadData() -> Void {
         let req = RequestManager()
         let url = "http://api.openweathermap.org/data/2.5/weather?lat=\(self.userLocation.getLatitude())&lon=\(self.userLocation.getLongitude())&units=metric"
-        req.load("GET", url: url, completion: updateUI, errorHandler: showError)
+        req.load(.GET, url: url, completion: updateUI, errorHandler: showError)
     }
     
     /**
@@ -74,8 +91,9 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
     :returns: No return value.
     */
     func showError(error : String) -> Void {
-        self.activityIndicator.stopAnimating()
         println(error)
+
+        self.activityIndicator.stopAnimating()
         Utilities().showAlert("Error", message: error, view: self)
     }
 

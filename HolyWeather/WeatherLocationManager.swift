@@ -12,6 +12,7 @@ import UIKit
 
 protocol WeatherLocationDelegate {
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!)
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus)
 }
 
 class WeatherLocationManager : NSObject, CLLocationManagerDelegate {
@@ -25,7 +26,13 @@ class WeatherLocationManager : NSObject, CLLocationManagerDelegate {
     */
     override init() {
         super.init()
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        self.delegate?.locationManager(manager, didChangeAuthorizationStatus: status)
     }
     
     /**
