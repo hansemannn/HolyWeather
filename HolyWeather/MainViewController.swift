@@ -63,7 +63,7 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
     }
 
     /**
-    Loads the weather data from the json-based web service.
+    Displays the dats received from the RequestManager completion handler
 
     :param: response    The json response of the weather
     
