@@ -20,7 +20,7 @@ class RequestManager {
     
     :returns: No return value.
     */
-    func load(method: String, url: String, completion: (AnyObject) -> Void) -> Void {
+    func load(method: String, url: String, completion: (AnyObject) -> Void, errorHandler : (String) -> Void) -> Void {
         let URL = NSURL(string: url)!
         let mutableURLRequest = NSMutableURLRequest(URL: URL)
         mutableURLRequest.HTTPMethod = method
@@ -31,13 +31,10 @@ class RequestManager {
         let req = Alamofire.request(mutableURLRequest).responseJSON { (req, res, json, error) in
                         
             if(json == nil) {
-                println("The server is currently not available, please try again!")
-                completion("Error")
-                
-                return
+                errorHandler("The server is currently not available, please try again!")
+            } else {
+                completion(json!)
             }
-            
-            completion(json!)
         }
     }
 }

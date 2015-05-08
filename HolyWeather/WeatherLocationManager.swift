@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 protocol WeatherLocationDelegate {
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!)
@@ -15,7 +16,6 @@ protocol WeatherLocationDelegate {
 
 class WeatherLocationManager : NSObject, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
-    var didUpdateLocation = false
     internal var delegate : WeatherLocationDelegate?
 
     /**
@@ -25,11 +25,7 @@ class WeatherLocationManager : NSObject, CLLocationManagerDelegate {
     */
     override init() {
         super.init()
-        
-        self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        
-        self.updateLocation();
     }
     
     /**
@@ -37,7 +33,7 @@ class WeatherLocationManager : NSObject, CLLocationManagerDelegate {
     
     :returns: No return value.
     */
-    func updateLocation() -> Void {
+    func updateLocation(errorHandler : String -> Void) -> Void {
         if CLLocationManager.locationServicesEnabled() {
             if self.locationManager.respondsToSelector("requestWhenInUseAuthorization") {
                 if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse) {
@@ -49,7 +45,7 @@ class WeatherLocationManager : NSObject, CLLocationManagerDelegate {
                 self.locationManager.startUpdatingLocation()
             }
         } else {
-            println("Location not granted")
+            errorHandler("Your location services are disabled. Please turn on location services and try again!")
         }
     }
     

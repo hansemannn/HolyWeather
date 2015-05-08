@@ -21,9 +21,13 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.activityIndicator.startAnimating()
+
         self.locationManager.delegate = self
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.activityIndicator.startAnimating()
+        self.locationManager.updateLocation(showError)
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,13 +63,26 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
     func loadData() -> Void {
         let req = RequestManager()
         let url = "http://api.openweathermap.org/data/2.5/weather?lat=\(self.userLocation.getLatitude())&lon=\(self.userLocation.getLongitude())&units=metric"
-        req.load("GET", url: url, completion: updateUI)
+        req.load("GET", url: url, completion: updateUI, errorHandler: showError)
+    }
+    
+    /**
+    Shows a network error.
+    
+    :param: error    The error message.
+    
+    :returns: No return value.
+    */
+    func showError(error : String) -> Void {
+        self.activityIndicator.stopAnimating()
+        println(error)
+        Utilities().showAlert("Error", message: error, view: self)
     }
 
     /**
-    Displays the dats received from the RequestManager completion handler
+    Displays the dats received from the RequestManager completion handler.
 
-    :param: response    The json response of the weather
+    :param: response    The json response of the weather.
     
     :returns: No return value.
     */
