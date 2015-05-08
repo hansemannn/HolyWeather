@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import SwiftyJSON
 import Alamofire
+import MMWormhole
 
 class MainViewController: UIViewController, WeatherLocationDelegate {
     
@@ -27,6 +28,8 @@ class MainViewController: UIViewController, WeatherLocationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var wormhole = MMWormhole()
 
         self.locationManager.delegate = self
     }

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MMWormhole.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4B68C95D83CBC94E8A0135A1</key>
+		<key>0482FACDA2803CCF2DECE573</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F16437E8A28832C0BD0AD155</key>
+		<key>418797CF8B96F4C823EBDCF5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F7B7048C736DDD38008B97F2</key>
+		<key>741C2B6299D854C431AA65FD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C811473ECA3B6F5F8AF2939F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
