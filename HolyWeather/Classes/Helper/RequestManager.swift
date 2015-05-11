@@ -20,14 +20,14 @@ class RequestManager {
     
     :returns: No return value.
     */
-    func load(method: Alamofire.Method, url: String, completion: (AnyObject) -> Void, errorHandler : (String) -> Void) -> Void {
+    func load(method: Alamofire.Method, url: String, completion: (AnyObject) -> Void, failture : (String) -> Void) -> Void {
         let parameters = []
         var JSONSerializationError: NSError? = nil
         
         let req = Alamofire.request(method, url).responseJSON { (_, _, JSON, _) in
                         
             if(JSON == nil) {
-                errorHandler("The server is currently not available, please try again!")
+                failture("The server is currently not available, please try again!")
             } else {
                 completion(JSON!)
             }

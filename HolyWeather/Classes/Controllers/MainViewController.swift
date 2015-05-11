@@ -158,7 +158,7 @@ class MainViewController: UIViewController, WeatherLocationDelegate, UITableView
     func loadData() -> Void {
         let req = RequestManager()
         let url = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=\(self.userLocation.getLatitude())&lon=\(self.userLocation.getLongitude())&units=metric&cnt=5"
-        req.load(.GET, url: url, completion: updateUI, errorHandler: showError)
+        req.load(.GET, url: url, completion: updateUI, failture: showError)
     }
     
     /**

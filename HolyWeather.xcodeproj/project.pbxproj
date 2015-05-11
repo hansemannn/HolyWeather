@@ -253,6 +253,7 @@
 				3AFDB77E1AFDF7EC00E1508E /* Forecast.swift */,
 			);
 			name = Models;
+			path = Classes/Models;
 			sourceTree = "<group>";
 		};
 		3AE59CA81AFAAA3700F38D4B /* Controllers */ = {
@@ -261,6 +262,7 @@
 				3A93872D1AFA8EF600730B98 /* MainViewController.swift */,
 			);
 			name = Controllers;
+			path = Classes/Controllers;
 			sourceTree = "<group>";
 		};
 		3AE59CA91AFAAA5000F38D4B /* Helper */ = {
@@ -271,6 +273,7 @@
 				3ACC83911AFD0ACB00ECC879 /* Utilities.swift */,
 			);
 			name = Helper;
+			path = Classes/Helper;
 			sourceTree = "<group>";
 		};
 		AEFE2B5E36CE317845A339D8 /* Frameworks */ = {
